@@ -83,7 +83,7 @@ app.post("/users", (req, res) => {
   };
   let result = addUser(userToAdd);
   if (result){
-    res.status(201).send()
+    res.status(201).send(userToAdd)
   }
 });
 function randomidgenerator(){

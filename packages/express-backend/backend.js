@@ -77,13 +77,18 @@ const addUser = (user) => {
 };
 
 app.post("/users", (req, res) => {
-  const userToAdd = req.body;
+  const userToAdd = {
+    id: randomidgenerator(),
+    ...req.body
+  };
   let result = addUser(userToAdd);
   if (result){
     res.status(201).send()
   }
 });
-
+function randomidgenerator(){
+  return Date.now();
+}
 app.listen(port, () => {
   console.log(
     `Example app listening at http://localhost:${port}`

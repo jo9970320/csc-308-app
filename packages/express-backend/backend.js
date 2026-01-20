@@ -78,8 +78,10 @@ const addUser = (user) => {
 
 app.post("/users", (req, res) => {
   const userToAdd = req.body;
-  addUser(userToAdd);
-  res.send();
+  let result = addUser(userToAdd);
+  if (result){
+    res.status(201).send()
+  }
 });
 
 app.listen(port, () => {

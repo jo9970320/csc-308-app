@@ -1,10 +1,14 @@
 {
   "name": "csc-308-app",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "npm --workspace packages/react-frontend run dev",
-    "build": "npm --workspace packages/react-frontend run build",
-    "preview": "npm --workspace packages/react-frontend run preview"
+    "install:all": "npm install",
+    "dev:frontend": "npm --workspace packages/react-frontend run dev",
+    "build:frontend": "npm --workspace packages/react-frontend run build",
+    "dev:backend": "npm --workspace packages/express-backend run dev",
+    "start:backend": "npm --workspace packages/express-backend run start"
   }
 }

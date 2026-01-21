@@ -12,11 +12,15 @@ function MyApp() {
     .catch((error) => { console.log(error); });
 
   }, []);
-  function removeOneCharacter(index) {
-    const updated = characters.filter((character, i) => {
-      return i !== index;
+  async function removeOneCharacter(id) {
+    const response = await fetch(`http://localhost:8000/users/${id}`,{
+      method: "DELETE",
     });
-    setCharacters(updated);
+    if (response.status === 204){
+      setCharacters((prev) => prev.filter((c) => c.id !== id));
+    
+    }
+    
   }
   return (
     <div className="container">

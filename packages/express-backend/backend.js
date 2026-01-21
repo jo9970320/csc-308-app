@@ -46,7 +46,9 @@ const findUserByName = (name) => {
     (user) => user["name"] === name
   );
 };
-
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 app.get("/users", (req, res) => {
   const name = req.query.name;
   if (name != undefined) {

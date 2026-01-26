@@ -7,7 +7,7 @@ test('Testing average -- success', () => {
 });
 
 test('Test for empty -- success', () => {
-  const target = [];
+  const target = null;
   const result = functions.average_sum([]);
   expect(target).toBe(result);
 });

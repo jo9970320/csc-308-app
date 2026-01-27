@@ -11,8 +11,15 @@ class StockPortfolio{
     }
     sell(symbol, shares) {
         const current = this.stocks[symbol] ?? 0;
-        this.stocks[symbol] = current - shares;
-}
+        const updated = current - shares;
+
+        if (updated === 0) {
+            delete this.stocks[symbol];
+        } else {
+            this.stocks[symbol] = updated;
+        }
+    }
+
     uniqueSymbols() {
     return Object.keys(this.stocks).length;
     }

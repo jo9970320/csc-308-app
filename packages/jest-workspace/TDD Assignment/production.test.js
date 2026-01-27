@@ -54,4 +54,13 @@ test("2.5: uniqueSymbolsCount returns number of unique symbols owned", () => {
   const result = portf.uniqueSymbols()
   expect(target).toBe(result);
 });
+test("2.6: selling all shares removes the symbol from the portfolio", () => {
+  const portf = new StockPortfolio();
+  portf.purchase("Item", 5);
+  portf.sell("Item", 5);
+  const result = portf.stocks["Item"]
+  expect(result).toBeUndefined();
+  expect(portf.uniqueSymbols()).toBe(0);
+  expect(portf.isEmpty()).toBe(true);
+});
 

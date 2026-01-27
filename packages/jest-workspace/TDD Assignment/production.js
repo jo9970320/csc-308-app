@@ -9,8 +9,16 @@ class StockPortfolio{
         const current = this.stocks[symbol] ?? 0;
         this.stocks[symbol] = current + shares;
     }
+
     sell(symbol, shares) {
-        const current = this.stocks[symbol] ?? 0;
+        // const current = this.stocks[symbol] ?? 0;
+        const current = this.sharesFor(symbol);
+
+
+        if (shares > current) {
+            throw new Error("Not possible to sell this number of shares.");
+        }
+
         const updated = current - shares;
 
         if (updated === 0) {
@@ -19,7 +27,7 @@ class StockPortfolio{
             this.stocks[symbol] = updated;
         }
     }
-
+     
     uniqueSymbols() {
         return Object.keys(this.stocks).length;
     }

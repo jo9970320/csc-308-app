@@ -37,13 +37,11 @@ test("2.4: selling shares subtracts from owned shares", () => {
   expect(target).toBe(result);
 });
 
-test("2.4: test negative shares", () => {
+test("2.4/2.8: test negative shares", () => {
   const portf = new StockPortfolio();
   portf.purchase("Item", 10);
-  portf.sell("Item", 11);
-  const target = -1;
-  const result = portf.stocks["Item"]
-  expect(target).toBe(result);
+  expect(() => portf.sell("Item", 11)).toThrow("Not possible to sell this number of shares.");
+
 });
 
 test("2.5: uniqueSymbolsCount returns number of unique symbols owned", () => {
@@ -75,5 +73,19 @@ test("2.7: sharesFor returns 0 for a symbol not owned", () => {
   const portf = new StockPortfolio();
   const result = portf.sharesFor("randomItem")
   expect(0).toBe(result);
+});
+test("2.8: cannot sell more shares than owned", () => {
+  const portf = new StockPortfolio();
+  portf.purchase("RBLX", 2);
+
+  expect(() => portf.sell("RBLX", 3))
+    .toThrow("Not possible to sell this number of shares.");
+});
+
+test("2.8: cannot sell shares of a symbol not owned", () => {
+  const portf = new StockPortfolio();
+
+  expect(() => portf.sell("RBLX", 1))
+    .toThrow("Not possible to sell this number of shares.");
 });
 

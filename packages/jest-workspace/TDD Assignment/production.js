@@ -1,3 +1,12 @@
+// 3. I honestly really like the TDD approach. It is time consuming but I personally
+// think as a programmer, it is very professional to go about this way. It's like
+// you're brainstorming each scenario of how your code can go wrong before you start on it
+// and while it is time consuming, I think it can be more time consuming figuring out 
+// what you missed in your program by not brainstorming the possible edge cases before 
+// diving in.
+
+
+
 class StockPortfolio{
     constructor(){
         this.stocks = {};

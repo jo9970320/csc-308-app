@@ -27,6 +27,7 @@ test("2.3: purchasing the same symbol twice adds shares", () => {
   const result = 7;
   expect(target).toBe(result);
 });
+
 test("2.4: selling shares subtracts from owned shares", () => {
   const portf = new StockPortfolio();
   portf.purchase("Item", 10);
@@ -35,6 +36,7 @@ test("2.4: selling shares subtracts from owned shares", () => {
   const result = portf.stocks["Item"]
   expect(target).toBe(result);
 });
+
 test("2.4: test negative shares", () => {
   const portf = new StockPortfolio();
   portf.purchase("Item", 10);
@@ -43,3 +45,13 @@ test("2.4: test negative shares", () => {
   const result = portf.stocks["Item"]
   expect(target).toBe(result);
 });
+
+test("2.5: uniqueSymbolsCount returns number of unique symbols owned", () => {
+  const portf = new StockPortfolio();
+  portf.purchase("gme", 5);
+  portf.purchase("rblx", 10);
+  const target = 2;
+  const result = portf.uniqueSymbols()
+  expect(target).toBe(result);
+});
+

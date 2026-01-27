@@ -13,6 +13,11 @@ class StockPortfolio{
         const current = this.stocks[symbol] ?? 0;
         this.stocks[symbol] = current - shares;
 }
+    uniqueSymbols() {
+    return Object.keys(this.stocks).length;
+    }
+
+
 
 }
 module.exports = {StockPortfolio}

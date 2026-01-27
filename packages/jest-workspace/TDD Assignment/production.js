@@ -20,7 +20,6 @@ class StockPortfolio{
     }
 
     sell(symbol, shares) {
-        // const current = this.stocks[symbol] ?? 0;
         const current = this.sharesFor(symbol);
 
 

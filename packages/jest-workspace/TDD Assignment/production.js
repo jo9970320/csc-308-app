@@ -9,6 +9,10 @@ class StockPortfolio{
         const current = this.stocks[symbol] ?? 0;
         this.stocks[symbol] = current + shares;
     }
+    sell(symbol, shares) {
+        const current = this.stocks[symbol] ?? 0;
+        this.stocks[symbol] = current - shares;
+}
 
 }
 module.exports = {StockPortfolio}

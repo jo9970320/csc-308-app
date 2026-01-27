@@ -21,7 +21,10 @@ class StockPortfolio{
     }
 
     uniqueSymbols() {
-    return Object.keys(this.stocks).length;
+        return Object.keys(this.stocks).length;
+    }
+    sharesFor(symbol) {
+        return this.stocks[symbol] ?? 0;
     }
 
 

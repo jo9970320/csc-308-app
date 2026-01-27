@@ -64,3 +64,16 @@ test("2.6: selling all shares removes the symbol from the portfolio", () => {
   expect(portf.isEmpty()).toBe(true);
 });
 
+test("2.7: sharesFor returns shares owned for a symbol", () => {
+  const portf = new StockPortfolio();
+  portf.purchase("RBLX", 10);
+  const result = portf.sharesFor("RBLX")
+  expect(10).toBe(result);
+});
+
+test("2.7: sharesFor returns 0 for a symbol not owned", () => {
+  const portf = new StockPortfolio();
+  const result = portf.sharesFor("randomItem")
+  expect(0).toBe(result);
+});
+

@@ -5,8 +5,6 @@
 // what you missed in your program by not brainstorming the possible edge cases before 
 // diving in.
 
-
-
 class StockPortfolio{
     constructor(){
         this.stocks = {};

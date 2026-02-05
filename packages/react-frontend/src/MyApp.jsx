@@ -17,7 +17,7 @@ function MyApp() {
       method: "DELETE",
     });
     if (response.status === 204){
-      setCharacters((prev) => prev.filter((c) => c.id !== id));
+      setCharacters((prev) => prev.filter((c) => c._id !== id));
     
     }
     
